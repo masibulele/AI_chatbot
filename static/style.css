@@ -1,0 +1,107 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body{
+    background-color: #4b5c66;
+}
+
+.container{
+    background-color: #fff;
+    height: 450px;
+    width: 320px;
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    box-shadow: 0 0 15px 0 black;
+
+}
+.chat-header{
+    background-color: #0652c0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 0 30px;
+    font-size: 1.5rem;
+}
+
+
+.logo{
+    width: 35px;
+    border-radius: 50%;
+}
+
+.title{
+    padding-left: 10px;
+}
+
+
+.chat-body{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    align-items: flex-end;
+    overflow-y: auto;
+}
+
+.chat-input{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+
+}
+.input-section{
+    flex: 9;
+}
+
+.send{
+    flex: 1;
+    padding-right: 4px;
+}
+
+#text-input{
+    line-height: 30px;
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    caret-color: black;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.3rem;
+}
+
+.user-message, .chatbot-message {
+    padding: 8px;
+    background-color: #ccc;
+    width: max-content;
+    margin: 5px;
+    border-radius: 10px 3px 10px 10px;
+}
+
+
+.chatbot-message{
+    background-color: #0652c0;
+    color: #fff;
+    align-self: flex-start;
+    border-radius: 10px 10px 3px 10px;
+}
