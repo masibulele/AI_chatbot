@@ -3,10 +3,14 @@ const textInput = document.querySelector("#text-input");
 const send = document.querySelector(".send");
 
 // send messages with mouse click
-send.addEventListener('click',()=> renderUserMessage());
+send.addEventListener('click',(event)=> {
+    // event.preventDefault()
+    renderUserMessage()
+});
 //send message with enter key
 textInput.addEventListener('keyup',(event)=>{
     if(event.keyCode===13){
+        //  event.preventDefault()
         renderUserMessage();
     }
 });
@@ -14,14 +18,14 @@ textInput.addEventListener('keyup',(event)=>{
 //  helper function to render message on chat
 function renderUserMessage() {
     const userInput = textInput.value ;
-    textInput.value="";
+    
     renderMessageEle(userInput,"user");
     setTimeout(()=>{
-        renderChatBotResponse(userInput);
+        sendData(userInput);
         setScrollPosition()
-    },600);
+    },1);
     
-    
+    textInput.value="";
     
 }
 
@@ -47,10 +51,11 @@ function getBotResponse(userInput){
 }
 
 //  render chat bot responses
-function renderChatBotResponse(userInput) {
-    const res = getBotResponse(userInput);
-    renderMessageEle(res)
-}
+// function renderChatBotResponse(userInput) {
+//     // const res = getBotResponse(userInput);
+//     const res = sendData(userInput);
+//     //renderMessageEle(res)
+// }
 
 
 //  scroll helper function automatically scrolls up
@@ -60,5 +65,27 @@ function setScrollPosition() {
        chatBody.scrollTop= chatBody.scrollHeight;
     }
     
+}
+
+// test function send data to server
+function sendData(userInput) {
+    let botAns 
+    $.ajax({
+        url: '/get',
+        type: 'POST',
+        data: {
+            msg: userInput,	
+        }
+        
+    }).done((data)=>{
+        console.log('i am in the done function');
+        botAns = data;
+        renderMessageEle(data)
+        console.log(botAns);
+    })
+    
+
+
+  return  botAns
 }
 
