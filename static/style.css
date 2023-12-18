@@ -117,6 +117,8 @@ button{
     }
     .container{
         position: static;
+        height: 70vh;
+        width: 80vw;
     }
     
 }
