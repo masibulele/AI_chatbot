@@ -5,14 +5,10 @@ from openai import OpenAI
 load_dotenv()
 
 app = Flask(__name__)
-messages = [
-            {"role": "system", "content": "You are a helpful friendly assistance that provides concise responses."},
-            {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
-        ]
+
 
 @app.route('/')
 def home():
-  
     return render_template('index.html')
 
 @app.route('/get',methods=['GET','POST'])
@@ -34,14 +30,12 @@ def get_completion(data):
 
         temperature= 0,
         n=1,
-        max_tokens= 500,
+        max_tokens= 250,
     )
     botResp =completion.choices[0].message.content
     return botResp
 
-# def get_userInput(data,messages):
-#     messages.append({"role": "user", "content": f"{data}"})
-#     return messages
+
 
 if __name__ == '__main__':
     app.run(debug=True)

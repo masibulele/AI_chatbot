@@ -3,14 +3,14 @@ const textInput = document.querySelector("#text-input");
 const send = document.querySelector(".send");
 
 // send messages with mouse click
-send.addEventListener('click',(event)=> {
-    // event.preventDefault()
+send.addEventListener('click',()=> {
+    
     renderUserMessage()
 });
 //send message with enter key
 textInput.addEventListener('keyup',(event)=>{
     if(event.keyCode===13){
-        //  event.preventDefault()
+        
         renderUserMessage();
     }
 });

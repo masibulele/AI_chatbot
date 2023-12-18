@@ -96,6 +96,7 @@ button{
     width: max-content;
     margin: 5px;
     border-radius: 10px 3px 10px 10px;
+    max-width: 240px;
 }
 
 
@@ -104,4 +105,18 @@ button{
     color: #fff;
     align-self: flex-start;
     border-radius: 10px 10px 3px 10px;
+}
+
+
+@media (max-width: 560px) {
+    .main{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       height: 80vh;
+    }
+    .container{
+        position: static;
+    }
+    
 }
