@@ -28,7 +28,7 @@ def get_completion(data):
             {"role": "user", "content": f"{data}"}
         ],
 
-        temperature= 0,
+        temperature= 0.5,
         n=1,
         max_tokens= 250,
     )
